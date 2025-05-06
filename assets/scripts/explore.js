@@ -2,8 +2,8 @@
 
 window.addEventListener('DOMContentLoaded', init);
 
-let listVoices = speechSynthesis.getVoices();
-const voiceSelect = document.getElementById('voice-select');
+let listVoices;
+let voiceSelect;
 
 function populateVoices() {
   console.log('triggered');
@@ -26,6 +26,8 @@ function populateVoices() {
 }
 
 function init() { 
+  listVoices = speechSynthesis.getVoices();
+  voiceSelect = document.getElementById('voice-select');
 
   const synth = window.speechSynthesis;
 
