@@ -2,10 +2,8 @@
 
 window.addEventListener('DOMContentLoaded', init);
 
-function init() { 
-
-  const synth = window.speechSynthesis;
-
+function populateVoices() {
+  console.log('triggered');
   const voiceSelect = document.getElementById('voice-select');
   let listVoices = speechSynthesis.getVoices();
   for(let i = 0;i < listVoices.length;i++) {
@@ -20,6 +18,18 @@ function init() {
     newOption.setAttribute("data-name", listVoices[i].name);
     voiceSelect.appendChild(newOption);
   }
+
+  voiceSelect.style.display = 'none';
+  voiceSelect.style.display = 'block';
+}
+
+function init() { 
+
+  const synth = window.speechSynthesis;
+
+  synth.addEventListener('voiceschanged', populateVoices);
+
+  populateVoices();
 
   const talkButton = document.querySelector('button');
   talkButton.addEventListener("click", function() {
