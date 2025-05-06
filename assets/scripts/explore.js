@@ -41,7 +41,6 @@ function init() {
         utterance.voice = listVoices[i];
       }
     }
-
     synth.speak(utterance);
 
     const face = document.querySelector('img');
