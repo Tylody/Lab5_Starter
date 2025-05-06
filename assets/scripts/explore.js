@@ -2,10 +2,12 @@
 
 window.addEventListener('DOMContentLoaded', init);
 
+let listVoices = speechSynthesis.getVoices();
+const voiceSelect = document.getElementById('voice-select');
+
 function populateVoices() {
   console.log('triggered');
-  const voiceSelect = document.getElementById('voice-select');
-  let listVoices = speechSynthesis.getVoices();
+  listVoices = speechSynthesis.getVoices();
   for(let i = 0;i < listVoices.length;i++) {
     const newOption = document.createElement('option');
     newOption.textContent = `${listVoices[i].name} (${listVoices[i].lang})`;
